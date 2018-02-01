@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const { json } = require("body-parser");
 const mongoose = require("mongoose");
 const Restaurant = require("./restaurant");
 const Student = require("./student");
 
+app.use(json());
 mongoose
   .connect(process.env.CONNECTION_STRING)
   .then(db => {
